@@ -1,25 +1,35 @@
 package main;
 
 import main.loggers.ConsoleEventLogger;
+import main.loggers.EventLogger;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by win-7.1 on 27.12.2016.
  */
 public class App {
     private Client client;
-    private ConsoleEventLogger consoleEventLogger;
+    private EventLogger eventLogger;
 
     public void logEvent(String message)
     {
         String result = message.replaceAll(String.valueOf(client.getId()), client.getName());
-        consoleEventLogger.logEvent(result);
+        eventLogger.logEvent(result);
     }
 
     public static void main(String[] args)
     {
-        App app = new App();
-        app.client=new Client(1, "John Smith");
-        app.consoleEventLogger=new ConsoleEventLogger();
-        app.logEvent("some event for user 1");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
+        App app = ctx.getBean(App.class);
+
+       app.logEvent("some event for user 1");
+       app.logEvent("some event for user 2");
     }
+
+    public App(Client client, EventLogger eventLogger) {
+        this.client = client;
+        this.eventLogger = eventLogger;
+    }
+
 }
