@@ -2,15 +2,27 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="client" class="main.Client">
+    <bean id="client" class="springTest.Client">
         <constructor-arg index="0" value="1"/>
         <constructor-arg index="1" value="John Smith"/>
     </bean>
 
-    <bean id="eventLogger" class="main.loggers.ConsoleEventLogger" />
+    <bean id="eventLogger" class="springTest.loggers.ConsoleEventLogger"/>
 
-    <bean id="app" class="main.App">
+    <bean id="app" class="springTest.App">
         <constructor-arg index="0" ref="client"/>
         <constructor-arg index="1" ref="eventLogger"/>
     </bean>
+
+    <bean id="event" class="springTest.Event" scope="prototype">
+
+        <constructor-arg>
+            <bean class="java.util.Date"/>
+        </constructor-arg>
+        <constructor-arg>
+            <bean class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
+        </constructor-arg>
+    </bean>
+
+
 </beans>
