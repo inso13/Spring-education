@@ -4,6 +4,7 @@ package springTest;
 
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import springTest.loggers.EventLogger;
 
@@ -18,19 +19,22 @@ public class App {
     public void logEvent(String message, Event event)
     {
         String result = message.replaceAll(String.valueOf(client.getId()), client.getName());
-       //Event event = new Event(new Date(), new SimpleDateFormat("YY MM dd"));
+
         event.setMessage(result);
         eventLogger.logEvent(event);
     }
 
     public static void main(String[] args)
     {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
+        ConfigurableApplicationContext ctx = new ClassPathXmlApplicationContext("spring.xml");
         App app = ctx.getBean(App.class);
         Event event = ctx.getBean(Event.class);
        app.logEvent("some event for user 1", event);
         Event event2 = ctx.getBean(Event.class);
        app.logEvent("some event for user 2", event2);
+        Event event3 = ctx.getBean(Event.class);
+        app.logEvent("some event for user 1", event3);
+        ctx.close();
     }
 
     public App(Client client, EventLogger eventLogger) {
