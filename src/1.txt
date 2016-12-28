@@ -15,3 +15,18 @@ Event{id=-1629802306, message='some event for user John Smith', date=Wed Dec 28 
 Event{id=1326671543, message='some event for user John Smith', date=Wed Dec 28 17:38:34 GMT+03:00 2016, df=28.12.2016 17:38:34}
 Event{id=-1991495061, message='some event for user 2', date=Wed Dec 28 17:38:34 GMT+03:00 2016, df=28.12.2016 17:38:34}
 Event{id=-1721482093, message='some event for user John Smith', date=Wed Dec 28 17:38:34 GMT+03:00 2016, df=28.12.2016 17:38:34}
+<<<<<<< Updated upstream
+=======
+Event{id=-1233984553, message='some event for user John Smith', date=Wed Dec 28 22:01:17 MSK 2016, df=28.12.2016 22:01:17}
+Event{id=401018938, message='some event for user 2', date=Wed Dec 28 22:01:17 MSK 2016, df=28.12.2016 22:01:17}
+Event{id=682168447, message='some event for user John Smith', date=Wed Dec 28 22:01:17 MSK 2016, df=28.12.2016 22:01:17}
+>>>>>>> Stashed changes
+Event{id=712657560, message='some event for user John Smith', date=Wed Dec 28 22:06:15 MSK 2016, df=28.12.2016 22:06:15}
+Event{id=890077887, message='some event for user 2', date=Wed Dec 28 22:06:15 MSK 2016, df=28.12.2016 22:06:15}
+Event{id=784531031, message='some event for user John Smith', date=Wed Dec 28 22:06:15 MSK 2016, df=28.12.2016 22:06:15}
+Event{id=-583817879, message='some event for user John Smith', date=Wed Dec 28 22:11:41 MSK 2016, df=28.12.2016 22:11:41}
+Event{id=20242673, message='some event for user 2', date=Wed Dec 28 22:11:41 MSK 2016, df=28.12.2016 22:11:41}
+Event{id=1560187186, message='some event for user John Smith', date=Wed Dec 28 22:11:41 MSK 2016, df=28.12.2016 22:11:41}
+Event{id=165933008, message='some event for user John Smith', date=Wed Dec 28 22:21:07 MSK 2016, df=28.12.2016 22:21:07}
+Event{id=-1820613290, message='some event for user 2', date=Wed Dec 28 22:21:07 MSK 2016, df=28.12.2016 22:21:07}
+Event{id=1028996069, message='some event for user John Smith', date=Wed Dec 28 22:21:07 MSK 2016, df=28.12.2016 22:21:07}

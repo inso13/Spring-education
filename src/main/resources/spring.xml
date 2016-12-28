@@ -2,28 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <import resource="loggers.xml"/>
     <bean id="client" class="springTest.Client">
         <constructor-arg index="0" value="1"/>
         <constructor-arg index="1" value="John Smith"/>
     </bean>
 
-    <bean id="eventLogger" class="springTest.loggers.ConsoleEventLogger"/>
-
-    <bean id="cacheLogger" class="springTest.loggers.CacheFileEventLogger" init-method="init" destroy-method="destroy">
-        <constructor-arg index="0" value="src\1.txt"/>
-        <constructor-arg index="1" value="5"/>
-    </bean>
-
-
     <bean id="app" class="springTest.App">
         <constructor-arg index="0" ref="client"/>
         <constructor-arg index="1" ref="cacheLogger"/>
     </bean>
-    
-    <bean id="fileLogger" class = "springTest.loggers.FileEventLogger" init-method="init">
-        <constructor-arg value="src\1.txt"/>
-    </bean>
-    
 
     <bean id="event" class="springTest.Event" scope="prototype">
 
