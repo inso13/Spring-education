@@ -30,3 +30,11 @@ Event{id=1560187186, message='some event for user John Smith', date=Wed Dec 28 2
 Event{id=165933008, message='some event for user John Smith', date=Wed Dec 28 22:21:07 MSK 2016, df=28.12.2016 22:21:07}
 Event{id=-1820613290, message='some event for user 2', date=Wed Dec 28 22:21:07 MSK 2016, df=28.12.2016 22:21:07}
 Event{id=1028996069, message='some event for user John Smith', date=Wed Dec 28 22:21:07 MSK 2016, df=28.12.2016 22:21:07}
+Event{id=1754611877, message='some event for user John Smith', date=Fri Jan 06 15:30:20 MSK 2017, df=06.01.2017 15:30:20}
+Event{id=-988511612, message='some event for user 2', date=Fri Jan 06 15:30:20 MSK 2017, df=06.01.2017 15:30:20}
+Event{id=916193592, message='some event for user John Smith', date=Fri Jan 06 15:30:20 MSK 2017, df=06.01.2017 15:30:20}
+Event{id=-124930268, message='some event for user John Smith', date=Fri Jan 06 15:31:53 MSK 2017, df=06.01.2017 15:31:53}
+Event{id=27231100, message='some event for user 2', date=Fri Jan 06 15:31:53 MSK 2017, df=06.01.2017 15:31:53}
+Event{id=-948618130, message='some event for user John Smith', date=Fri Jan 06 15:31:53 MSK 2017, df=06.01.2017 15:31:53}
+Event{id=-828726812, message='some event for user John Smith', date=Fri Jan 06 16:11:59 MSK 2017, df=06.01.2017 16:11:59}
+Event{id=-48817881, message='some event for user 2', date=Fri Jan 06 16:12:00 MSK 2017, df=06.01.2017 16:12:00}

@@ -6,6 +6,7 @@ package springTest;
 public class Client {
     private int id;
     private String name;
+    private String greeting;
 
     public int getId() {
         return id;
@@ -28,5 +29,11 @@ public class Client {
         this.name = name;
     }
 
+    public String getGreeting() {
+        return greeting;
+    }
 
+    public void setGreeting(String greeting) {
+        this.greeting = greeting;
+    }
 }

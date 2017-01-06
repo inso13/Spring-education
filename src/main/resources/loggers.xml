@@ -2,7 +2,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-    <bean id="eventLogger" class="springTest.loggers.ConsoleEventLogger"/>
+    <bean id="consoleEventLogger" class="springTest.loggers.ConsoleEventLogger"/>
 
     <bean id="cacheLogger" class="springTest.loggers.CacheFileEventLogger" parent="fileLogger" destroy-method="destroy">
 
@@ -11,5 +11,14 @@
 
     <bean id="fileLogger" class = "springTest.loggers.FileEventLogger" init-method="init">
         <constructor-arg value="src\1.txt"/>
+    </bean>
+
+    <bean id="combinedEventLogger" class="springTest.loggers.CombinedEventLogger">
+       <constructor-arg>
+           <list>
+               <ref bean="consoleEventLogger"/>
+               <ref bean="fileLogger"/>
+           </list>
+       </constructor-arg>
     </bean>
 </beans>
