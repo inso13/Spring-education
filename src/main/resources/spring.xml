@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util-3.2.xsd">
     <import resource="loggers.xml"/>
-    <bean id="client" class="springTest.Client">
-        <constructor-arg index="0" value="1"/>
-        <constructor-arg index="1" value="John Smith"/>
-        <property name="greeting" value="Hello there!"/>
+
+    <util:properties id="clientProps"
+                     location="classpath:client.properties"/>
+    <util:map id="loggerMap" map-class="java.util.TreeMap">
+        <entry key="INFO" value-ref="consoleEventLogger"/>
+        <entry key="ERROR" value-ref="combinedEventLogger"/>
+    </util:map>
+
+
+
+    <bean id="client" class="springTest.Client" c:id="${id}" c:name="${name}" p:greeting="${greeting}">
     </bean>
 
-    <bean id="app" class="springTest.App">
-        <constructor-arg index="0" ref="client"/>
+    <bean id="app" class="springTest.App" c:client-ref="client">
         <constructor-arg index="1" ref="cacheLogger"/>
-        <constructor-arg index="2">
-            <map>
-                <entry key="INFO" value-ref="consoleEventLogger"/>
-                <entry key="ERROR" value-ref="combinedEventLogger"/>
-            </map>
-        </constructor-arg>
+        <constructor-arg index="2" ref="loggerMap"/>
+
     </bean>
 
     <bean id="event" class="springTest.Event" scope="prototype">
@@ -29,6 +41,14 @@
             <bean class="java.text.DateFormat" factory-method="getDateTimeInstance"/>
         </constructor-arg>
     </bean>
-
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="locations">
+            <list>
+                <value>classpath:client.properties</value>
+            </list>
+        </property>
+        <property name="ignoreResourceNotFound" value="true" />
+        <property name="systemPropertiesModeName" value="SYSTEM_PROPERTIES_MODE_OVERRIDE" />
+    </bean>
 
 </beans>

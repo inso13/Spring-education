@@ -22,7 +22,7 @@ public class App {
     {
         EventLogger logger = loggers.get(type);
         if (logger==null) logger=defaultLogger;
-        String result = message.replaceAll(String.valueOf(client.getId()), client.getName());
+        String result = client.getGreeting()+" "+message.replaceAll(String.valueOf(client.getId()), client.getName());
         event.setMessage(result);
         logger.logEvent(event);
     }
